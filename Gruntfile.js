@@ -122,6 +122,12 @@ module.exports = function(grunt) {
                 files: '<%= paths.js %>',
                 tasks: ['jshint']
             }
+        },
+
+        connect: {
+            index: {
+                port: 9000
+            }
         }
     });
 
@@ -132,8 +138,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-jsbeautifier');
+    grunt.loadNpmTasks('grunt-connect');
 
     grunt.registerTask('default', ['jshint', 'jsbeautifier:check', 'less:admin']);
     grunt.registerTask('beautify', ['jsbeautifier:beautify']);
     grunt.registerTask('deploy', ['jsbeautifier:beautify', 'clean:pre', 'copy:main', 'compress', 'copy:archive', 'clean:post']);
+    grunt.registerTask('serve', ['connect']);
 };
