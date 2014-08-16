@@ -1,4 +1,4 @@
-public/js/vendor/**
+assets/js/vendor/**
 node_modules/**
-build/public/js/vendor/**
-dist/public/js/vendor/**
+build/assets/js/vendor/**
+dist/assets/js/vendor/**
