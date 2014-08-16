@@ -1,19 +1,19 @@
 {
-  "name": "AppName",
+  "name": "ein-jahr-groko",
   "version": "0.0.0",
-  "description": "Awesome Angular.js and Bootstrap based app",
+  "description": "Ein Jahr GroKo",
   "main": "Gruntfile.js",
   "scripts": {
     "test": "make test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ChristianSch/webapp-boilerplate"
+    "url": "https://github.com/ChristianSch/ein-jahr-groko"
   },
   "author": "Christian Schulze",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ChristianSch/webapp-boilerplate/issues"
+    "url": "https://github.com/ChristianSch/ein-jahr-groko"
   },
   "homepage": "",
   "devDependencies": {
