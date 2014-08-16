@@ -28,15 +28,15 @@ angular.module('myApp.services', [])
                 $http({
                     'method': 'GET',
                     'url': dataBaseUri + 'item/' + randID
-                })
-                    .success(function(data, status, headers, config) {
-                        console.log(data);
-                        return {};
-                    })
-                    .error(function(data, status, headers, config) {
-                        console.log("returned status " + status);
-                        return {};
-                    });
+                }).
+                success(function(data, status, headers, config) { // jshint unused:false
+                    console.log(data);
+                    return {};
+                }).
+                error(function(data, status, headers, config) { // jshint unused:false
+                    console.log('returned status ' + status);
+                    return {};
+                });
 
                 return defer.promise;
             }
