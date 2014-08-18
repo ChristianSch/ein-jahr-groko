@@ -1,8 +1,8 @@
 'use strict';
 
 
-angular.module('myApp.services', [])
-    .factory('RandomIDService', function() {
+angular.module('myApp.services', []).
+factory('RandomIDService', function() {
         /**
          * Return random integer between min and max (both inclusive)
          * @param  {int} min minimal value
@@ -16,8 +16,8 @@ angular.module('myApp.services', [])
         return {
             getRandID: getRandID
         };
-    })
-    .factory('RandomQuoteService', ['$http', '$q', 'RandomIDService', 'dataBaseUri',
+    }).
+    factory('RandomQuoteService', ['$http', '$q', 'RandomIDService', 'dataBaseUri',
         function($http, $q, RandomIDService, dataBaseUri) {
             function getRandQuote() {
                 var lowestID = 0;
