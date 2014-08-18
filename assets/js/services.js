@@ -20,25 +20,16 @@ angular.module('myApp.services', [])
     .factory('RandomQuoteService', ['$http', '$q', 'RandomIDService', 'dataBaseUri',
         function($http, $q, RandomIDService, dataBaseUri) {
             function getRandQuote() {
-                var defer = $q.defer;
                 var lowestID = 0;
                 var highestID = 1173; // FIXME: shouldn't be hardcoded
                 var randID = RandomIDService.getRandID(lowestID, highestID);
+                var regURL = dataBaseUri + 'item/' + randID;
 
-                $http({
+                // return promise returned by $http service
+                return $http({
                     'method': 'GET',
-                    'url': dataBaseUri + 'item/' + randID
-                }).
-                success(function(data, status, headers, config) { // jshint unused:false
-                    console.log(data);
-                    return {};
-                }).
-                error(function(data, status, headers, config) { // jshint unused:false
-                    console.log('returned status ' + status);
-                    return {};
+                    'url': regURL
                 });
-
-                return defer.promise;
             }
 
             return {
