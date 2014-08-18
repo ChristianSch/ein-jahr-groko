@@ -7,14 +7,21 @@ angular.module('myApp.controllers', [])
             $window.document.title = appTitle;
         }
     ])
-    .controller('RandomQuoteCtrl', ['$scope', 'RandomQuoteService',
-        function($scope, RandomQuoteService) {
-            RandomQuoteService.getRandQuote(); //.then();
-            $scope.quote = {
-                'title': 'Foo Bar!',
-                'author': 'George Washington',
-                'text': 'Donec ullamcorper nulla non metus auctor fringilla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam quis risus eget urna mollis ornare vel eu leo.',
-                'source': 'google.de'
-            };
+    .controller('RandomQuoteCtrl', ['$scope', '$log', 'RandomQuoteService',
+        function($scope, $log, RandomQuoteService) {
+            RandomQuoteService.getRandQuote().then(function(res) {
+                var data = res.data;
+
+                $scope.quote = {
+                    'title': data.title,
+                    'author': data.author,
+                    'text': data.quote,
+                    /* jshint camelcase:false */
+                    'source': data.quote_src
+                };
+
+            }, function(res) {
+                $log.error('status ' + res.status + ' returned');
+            });
         }
     ]);
