@@ -1,10 +1,10 @@
 'use strict';
 
 
-angular.module('myApp', [
+angular.module('einJahrGroKo', [
     'ui.bootstrap',
-    'myApp.filters',
-    'myApp.services',
-    'myApp.controllers',
-    'myApp.values'
+    'einJahrGroKo.filters',
+    'einJahrGroKo.services',
+    'einJahrGroKo.controllers',
+    'einJahrGroKo.values'
 ]);

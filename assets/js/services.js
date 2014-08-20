@@ -1,7 +1,7 @@
 'use strict';
 
 
-angular.module('myApp.services', [])
+angular.module('einJahrGroKo.services', [])
     .factory('RandomIDService', function() {
         /**
          * Return random integer between min and max (both inclusive)
