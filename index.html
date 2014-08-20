@@ -38,11 +38,9 @@
                 <h2>{{ quote.title }}</h2>
                 <blockquote>
                     <p>{{ quote.text }}</p>
-                    <footer>
-                        {{ quote.author }}&nbsp;
-                        <span ng-show="quote.source">
-                            (
-                            <cite title="" ng-show="quote.source" ng-bind-html="quote.source | getHtmlLink | trustHtml"></cite>)
+                    <footer ng-show="quote.author">
+                        {{ quote.author }}
+                        <span ng-show="quote.source">(<cite title="" ng-show="quote.source" ng-bind-html="quote.source | getHtmlLink | trustHtml"></cite>)
                         </span>
                     </footer>
                 </blockquote>
