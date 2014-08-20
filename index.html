@@ -33,15 +33,22 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
         <div class="container" ng-controller="RandomQuoteCtrl">
-            <h2>{{ quote.title }}</h2>
-            <blockquote>
-                <p>{{ quote.text }}</p>
-                <footer>{{ quote.author }}
-                    <span ng-show="quote.source">
-                        <cite title="">{{ quote.source }}</cite>
-                    </span>
-                </footer>
-            </blockquote>
+            <!-- quote -->
+            <div ng-show="quote">
+                <h2>{{ quote.title }}</h2>
+                <blockquote>
+                    <p>{{ quote.text }}</p>
+                    <footer>{{ quote.author }}
+                        <span ng-show="quote.source">
+                            <cite title="">{{ quote.source }}</cite>
+                        </span>
+                    </footer>
+                </blockquote>
+            </div>
+            <!-- ajax load animation -->
+            <div ng-hide="quote" class="spinner">
+                <img src="assets/img/loader.gif" alt="load animation">
+            </div>
         </div>
     </div>
 
