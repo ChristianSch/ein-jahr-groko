@@ -1,7 +1,7 @@
 'use strict';
 
 
-angular.module('myApp.controllers', [])
+angular.module('einJahrGroKo.controllers', [])
     .controller('MainCtrl', ['$scope', '$window', 'appTitle',
         function($scope, $window, appTitle) {
             $window.document.title = appTitle;
