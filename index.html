@@ -18,7 +18,7 @@
     <script src="assets/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 </head>
 
-<body ng-app="myApp" ng-controller="MainCtrl">
+<body ng-app="einJahrGroKo" ng-controller="MainCtrl">
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -38,9 +38,11 @@
                 <h2>{{ quote.title }}</h2>
                 <blockquote>
                     <p>{{ quote.text }}</p>
-                    <footer>{{ quote.author }}
+                    <footer>
+                        {{ quote.author }}&nbsp;
                         <span ng-show="quote.source">
-                            <cite title="">{{ quote.source }}</cite>
+                            (
+                            <cite title="" ng-show="quote.source" ng-bind-html="quote.source | getHtmlLink | trustHtml"></cite>)
                         </span>
                     </footer>
                 </blockquote>
