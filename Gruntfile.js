@@ -7,7 +7,7 @@ module.exports = function(grunt) {
             less: './less',
             css: './assets/css',
             js: ['*.js', 'assets/js/*.js', 'test/*.js'],
-            beautify: ['*.js', 'assets/js/*.js', 'test/*.js', 'index.html', 'assets/partials/**.html']
+            beautify: ['*.js', 'assets/js/*.js', 'test/*.js', 'index.html', 'assets/partials/**.html', 'assets/template/**.html']
         },
         buildType: 'Build',
         pkg: grunt.file.readJSON('package.json'),
@@ -71,7 +71,7 @@ module.exports = function(grunt) {
                     indentSize: 4,
                     maxPreserveNewlines: 10,
                     preserveNewlines: true,
-                    unformatted: ['a', 'sub', 'sup', 'b', 'i', 'u'],
+                    unformatted: ['a', 'span', 'sub', 'sup', 'b', 'i', 'u'],
                     wrapLineLength: 0
                 },
                 js: {

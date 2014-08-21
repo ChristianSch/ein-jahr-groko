@@ -7,21 +7,33 @@ angular.module('einJahrGroKo.controllers', [])
             $window.document.title = appTitle;
         }
     ])
-    .controller('RandomQuoteCtrl', ['$scope', '$log', 'RandomQuoteService',
-        function($scope, $log, RandomQuoteService) {
-            RandomQuoteService.getRandQuote().then(function(res) {
-                var data = res.data;
+    .controller('EjgQuoteCtrl', ['$scope', '$attrs', '$log', 'RandomQuoteService',
+        function($scope, $attrs, $log, RandomQuoteService) {
+            this.init = function(element) { // jshint unused:false
+                var converter = new Markdown.Converter();
+                var quote = null;
 
-                $scope.quote = {
-                    'title': data.title,
-                    'author': data.author,
-                    'text': data.quote,
-                    /* jshint camelcase:false */
-                    'source': data.quote_src
-                };
+                RandomQuoteService.getRandQuote().then(function(res) {
+                    // FIXME: markdown parser that does not enclose all
+                    // converted markdown in paragraph tags by default
+                    quote = {
+                        'author': res.author,
+                        'title': res.title,
+                        // the paragraph tags need to be stripped because the content is already
+                        // enclosed by a paragraph
+                        'text': converter.makeHtml(res.quote).replace('<p>', '').replace('</p>', ''),
+                        // the paragraph tags need to be stripped because <cite> may only contain
+                        // other phrasing content (and <p> is not one of them)
+                        // @see http://www.w3.org/TR/html-markup/cite.html#cite
+                        /* jshint camelcase:false */
+                        'source': converter.makeHtml(res.quote_src).replace('<p>', '').replace('</p>', '')
+                    };
 
-            }, function(res) {
-                $log.error('status ' + res.status + ' returned');
-            });
+                    $scope.quote = quote;
+
+                }, function(res) {
+                    $log.error(res);
+                });
+            };
         }
     ]);

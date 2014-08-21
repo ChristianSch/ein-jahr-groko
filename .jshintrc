@@ -1,6 +1,6 @@
 {
     "node": true,
-    "predef": ["angular", "navigator", "geolib"],
+    "predef": ["angular", "Markdown"],
     "browser": true,
     "esnext": true,
     "bitwise": true,

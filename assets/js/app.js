@@ -6,5 +6,6 @@ angular.module('einJahrGroKo', [
     'einJahrGroKo.filters',
     'einJahrGroKo.services',
     'einJahrGroKo.controllers',
-    'einJahrGroKo.values'
+    'einJahrGroKo.values',
+    'einJahrGroKo.directives'
 ]);
