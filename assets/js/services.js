@@ -61,14 +61,19 @@ angular.module('einJahrGroKo.services', [])
             getRandomNumber: getRandomNumber
         };
     })
-    .factory('RandomQuoteService', ['$http', '$q', 'RandomNumberService', 'DataService',
-        function($http, $q, RandomIDService, DataService) {
+    .factory('QuoteService', ['$http', '$q', 'RandomNumberService', 'DataService', 'QuoteHistoryService',
+        function($http, $q, RandomNumberService, DataService, QuoteHistoryService) {
+            /**
+             * Calculate size of returned data
+             * @param  {Object} data 
+             * @return {Integer} size of data
+             */
             function getDataSize(data) {
                 var size = 0,
                     key = null;
 
                 for (key in data) {
-                    // don’t inspect eventual functions
+                    // only count attributes (not functions)
                     if (data.hasOwnProperty(key)) {
                         size++;
                     }
@@ -77,21 +82,128 @@ angular.module('einJahrGroKo.services', [])
                 return size;
             }
 
-            function getRandQuote() {
+            /**
+             * Remove <p> and </p> from text
+             * @param  {String} text to strip p tags from
+             * @return {String}      stripped text
+             */
+            function stripParTag(text) {
+                return text.replace('<p>', '').replace('</p>', '');
+            }
+
+            /**
+             * Convert markdown to html
+             *
+             * @discussion If the quote was already converted the `isHtml`
+             * attribute is `true` and will be returned immediately. Otherwise
+             * the quote will beconverted and marked the same way.
+             * 
+             * @param  {Object} quote to convert
+             * @return {Object}       converted quote
+             */
+            function toHtml(quote) {
+                if (quote.isHtml) {
+                    return quote;
+                } else {
+                    var converter = new Markdown.Converter();
+
+                    return {
+                        'author': quote.author,
+                        'title': quote.title,
+                        'text': stripParTag(converter.makeHtml(quote.quote)),
+                        /* jshint camelcase:false */
+                        'source': stripParTag(converter.makeHtml(quote.quote_src)),
+                        'isHtml': true
+                    };
+                }
+            }
+
+            /**
+             * Get quote. There are three possibilities on what quote will be
+             * returned. This depends on the QuoteHistoryService status and
+             * whether or not `id` is null
+             *
+             * 1.  `id` is set: return quote with given id if possible.
+             *     Note: Promise rejects if quote with id was not found
+             *     
+             * 2.  `id` is null and QuoteHistoryService's head is at the latest
+             *     quote: random quote will be returned and added to the history
+             *     
+             * 3.  `id` is null and QuoteHistoryService's head is not the latest
+             *     quote: return next quote in history (the one following the
+             *     now-head). The head will be moved to the quote
+             *
+             * @see     QuoteHistoryService
+             * @param   {Integer}   `id` of quote or null for random quote or
+             * next in history
+             * @return  {Object}    Promise that resolves quote or rejects with
+             * error message
+             */
+            function getQuote(id) {
                 var defer = $q.defer();
 
-                DataService.getData().then(function(data) {
-                    var dataSize = getDataSize(data);
-                    var randIndex = RandomIDService.getRandomNumber(0, dataSize);
+                DataService.getData().then(function(data) { // jshint unused:false
+                    /*  
+                        please note that when rej and res are set, rej has a
+                        higher precedence and the promise rejects with `rej`
+                     */
+                    var res = null,
+                        rej = null;
 
-                    defer.resolve(data[randIndex]);
-                }, function(res) {
-                    defer.reject(res);
+                    if (id) {
+                        // return specific quote
+                        var key;
+
+                        for (key in data) {
+                            if (data.hasOwnProperty(key) && data[key].id == id) {
+                                res = data[key];
+                                break;
+                            }
+                        }
+
+                        // add quote to history
+                        if (res) {
+                            QuoteHistoryService.addObjectToHistory(id, res);
+                        }
+
+                        rej = res ? null : 'no quote with id ' + id;
+                    } else {
+                        /*  
+                            return random quote or next in history
+                            if history is at head, null will be returned. thus
+                            a random quote will be resolved
+                        */
+                        res = QuoteHistoryService.getNext();
+
+                        if (!res) {
+                            var dataSize = getDataSize(data);
+                            var randID = RandomNumberService.getRandomNumber(0,
+                                dataSize - 1);
+                            res = data[randID];
+                            QuoteHistoryService.addObjectToHistory(res.id, res);
+                        }
+                    }
+
+                    if (rej) {
+                        defer.reject(rej);
+                    } else {
+                        // return converted (markdown -> html) quote
+                        defer.resolve(toHtml(res));
+                    }
+
+                }, function(rej) {
+                    defer.reject(rej);
                 });
 
                 return defer.promise;
             }
 
+            // API for this service
+            return {
+                getQuote: getQuote
+            };
+        }
+    ])
             return {
                 getRandQuote: getRandQuote
             };
