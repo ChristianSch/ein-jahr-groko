@@ -209,7 +209,7 @@ angular.module('einJahrGroKo.services', [])
     .factory('QuoteHistoryService', ['$location',
         function($location) {
             var history = [];
-            var histPntr = 0;
+            var histPntr = -1;
 
             /**
              * Check if there are previous quotes
