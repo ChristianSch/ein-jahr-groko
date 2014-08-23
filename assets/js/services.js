@@ -257,16 +257,16 @@ angular.module('einJahrGroKo.services', [])
                 var out;
 
                 if (histPntr < (history.length - 1)) {
-                    out = history[histPntr];
+                    // return successor of current quote
                     histPntr++;
-
-                    console.log('returned getNext ' + out.id + '; moved pntr to ' + histPntr);
+                    out = history[histPntr];
 
                     // set hash in the browser location
                     if (out) {
                         $location.hash(out.id);
                     }
                 } else {
+                    // end of history already reached, no new quotes
                     out = null;
                 }
 
