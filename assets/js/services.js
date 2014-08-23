@@ -229,7 +229,7 @@ angular.module('einJahrGroKo.services', [])
                 histPntr++;
 
                 // set hash in the browsers location bar
-                $location.hash(id);
+                $location.hash(obj.id);
             }
 
             /**
