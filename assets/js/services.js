@@ -157,7 +157,8 @@ angular.module('einJahrGroKo.services', [])
 
                         for (key in data) {
                             if (data.hasOwnProperty(key) && data[key].id == id) {
-                                res = data[key];
+                                // convert markdown to html
+                                res = toHtml(data[key]);
                                 break;
                             }
                         }
@@ -180,7 +181,8 @@ angular.module('einJahrGroKo.services', [])
                             var dataSize = getDataSize(data);
                             var randID = RandomNumberService.getRandomNumber(0,
                                 dataSize - 1);
-                            res = data[randID];
+                            // convert markdown to html
+                            res = toHtml(data[randID]);
                             QuoteHistoryService.addObjectToHistory(res);
                         }
                     }
@@ -188,8 +190,7 @@ angular.module('einJahrGroKo.services', [])
                     if (rej) {
                         defer.reject(rej);
                     } else {
-                        // return converted (markdown -> html) quote
-                        defer.resolve(toHtml(res));
+                        defer.resolve(res);
                     }
 
                 }, function(rej) {
