@@ -45,7 +45,7 @@ angular.module('einJahrGroKo.controllers', [])
                 var prevQuote = QuoteHistoryService.getPrevious();
 
                 if (prevQuote) {
-                    $scope.quote = prevQuote.obj;
+                    $scope.quote = prevQuote;
                 }
 
                 // de-/enable `previous` button
