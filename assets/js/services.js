@@ -216,7 +216,7 @@ angular.module('einJahrGroKo.services', [])
              * @return {Boolean}
              */
             function hasPrevious() {
-                return (histPntr === 0) ? false : true;
+                return (histPntr > 0) ? true : false;
             }
 
             /**
