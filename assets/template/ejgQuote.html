@@ -1,0 +1,24 @@
+<div ng-show="quote">
+    <h2 ng-bind-html="quote.title | trustHtml"></h2>
+    <blockquote>
+        <p ng-bind-html="quote.text | trustHtml"></p>
+        <footer>
+            <!-- author -->
+            <span ng-show="quote.author" ng-bind-html="quote.author | trustHtml"></span>
+            <!-- source -->
+            <span ng-show="quote.source">
+                (<cite title="" ng-bind-html="quote.source | trustHtml"></cite>)
+            </span>
+        </footer>
+    </blockquote>
+    <p class="pull-left"><a class="btn btn-default" href="#" role="button" ng-disabled="disablePrev" ng-click="previousQuote()">&laquo; Vorheriges</a>
+        <p class="pull-right"><a class="btn btn-default" href="#" role="button" ng-click="setQuote()">Nächstes &raquo;</a>
+</div>
+
+<br style="clear: both;">
+
+</div>
+<!-- ajax load animation -->
+<div ng-hide="quote" class="spinner">
+    <img src="assets/img/loader.gif" alt="load animation">
+</div>
