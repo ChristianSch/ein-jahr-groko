@@ -11,6 +11,12 @@
             </span>
         </footer>
     </blockquote>
+    <p class="pull-left"><a class="btn btn-default" href="#" role="button" ng-disabled="{{ hasPrevious() !== true }}" ng-click="previousQuote()">&laquo; Vorheriges</a>
+        <p class="pull-right"><a class="btn btn-default" href="#" role="button" ng-click="setQuote()">Nächstes &raquo;</a>
+</div>
+
+<br style="clear: both;">
+
 </div>
 <!-- ajax load animation -->
 <div ng-hide="quote" class="spinner">
