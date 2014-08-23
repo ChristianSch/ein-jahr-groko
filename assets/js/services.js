@@ -9,16 +9,13 @@ angular.module('einJahrGroKo.services', [])
              * on the data. The first time the service is used the data gets
              * retrieved and cached. All next calls use the cached data.
              * A promise is returned in either case. So no matter what,
-             * DataService.getData().then() is mandatory. The difference is that
-             * the first call will be much faster than the following ones.
-             *
-             * The data is wrapped by an object indicating wether the data is
-             * cached or not:
-             *
-             *  {
-             *      'cached': {Boolean},
-             *      'data': {Object}
-             *  }
+             * DataService.getData().then() is mandatory.
+             */
+
+            /**
+             * Retrieve data from server and return promise
+             * @return {Object} promise that resolves data on success and
+             * rejects on failure with returned status (wrapped in a message)
              */
             function getData() {
                 var defer = $q.defer();
@@ -27,7 +24,9 @@ angular.module('einJahrGroKo.services', [])
                 // after finishing the retrieval
                 $http.get(dataSourceUrl, {
                     'cached': true,
-                    'headers': { 'Accept-Encoding': 'gzip' }
+                    'headers': {
+                        'Accept-Encoding': 'gzip'
+                    }
                 })
                     .success(function(data) {
                         // hand data over to the promise
@@ -40,6 +39,7 @@ angular.module('einJahrGroKo.services', [])
                 return defer.promise;
             }
 
+            // API for this service
             return {
                 getData: getData
             };
@@ -56,6 +56,7 @@ angular.module('einJahrGroKo.services', [])
             return Math.floor(((Math.random() * (max - min) + 1) + min) + 1);
         }
 
+        // API for this service
         return {
             getRandomNumber: getRandomNumber
         };
