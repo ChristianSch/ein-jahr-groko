@@ -242,6 +242,7 @@ angular.module('einJahrGroKo.services', [])
                 if (histPntr > 0) {
                     histPntr--;
 
+                    $location.hash(history[histPntr].id);
                     return history[histPntr];
                 }
 
