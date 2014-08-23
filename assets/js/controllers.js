@@ -34,10 +34,7 @@ angular.module('einJahrGroKo.controllers', [])
                     $scope.quote = res;
 
                     // de-/enable `previous` button
-                    $scope.hasPrevious = QuoteHistoryService.hasPrevious();
- 
-                }, function(res) {
-                    $log.error(res);
+                    $scope.disablePrev = QuoteHistoryService.hasPrevious() ? false : true;
                 });
             };
 
@@ -52,7 +49,7 @@ angular.module('einJahrGroKo.controllers', [])
                 }
 
                 // de-/enable `previous` button
-                $scope.hasPrevious = QuoteHistoryService.hasPrevious();
+                $scope.disablePrev = QuoteHistoryService.hasPrevious() ? false : true;
             };
         }
     ]);
