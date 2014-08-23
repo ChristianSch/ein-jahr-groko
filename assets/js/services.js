@@ -113,7 +113,8 @@ angular.module('einJahrGroKo.services', [])
                         'text': stripParTag(converter.makeHtml(quote.quote)),
                         /* jshint camelcase:false */
                         'source': stripParTag(converter.makeHtml(quote.quote_src)),
-                        'isHtml': true
+                        'isHtml': true,
+                        'id': quote.id
                     };
                 }
             }
@@ -163,7 +164,7 @@ angular.module('einJahrGroKo.services', [])
 
                         // add quote to history
                         if (res) {
-                            QuoteHistoryService.addObjectToHistory(id, res);
+                            QuoteHistoryService.addObjectToHistory(res);
                         }
 
                         rej = res ? null : 'no quote with id ' + id;
@@ -180,7 +181,7 @@ angular.module('einJahrGroKo.services', [])
                             var randID = RandomNumberService.getRandomNumber(0,
                                 dataSize - 1);
                             res = data[randID];
-                            QuoteHistoryService.addObjectToHistory(res.id, res);
+                            QuoteHistoryService.addObjectToHistory(res);
                         }
                     }
 
@@ -222,15 +223,8 @@ angular.module('einJahrGroKo.services', [])
              * @param {[type]} id  of quote
              * @param {[type]} obj quote
              */
-            function addObjectToHistory(id, obj) {
-                var histObj = {
-                    'id': id,
-                    'obj': obj
-                };
-
-                console.log('added ' + histObj.id + '; moved pntr to ' + histPntr);
-
-                history.push(histObj);
+            function addObjectToHistory(obj) {
+                history.push(obj);
                 histPntr++;
 
                 // set hash in the browsers location bar
