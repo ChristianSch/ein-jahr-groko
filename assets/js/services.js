@@ -242,7 +242,6 @@ angular.module('einJahrGroKo.services', [])
                 if (histPntr > 0) {
                     histPntr--;
 
-                    console.log('returned getPrevious ' + history[histPntr].id + '; moved pntr to ' + histPntr);
                     return history[histPntr];
                 }
 
