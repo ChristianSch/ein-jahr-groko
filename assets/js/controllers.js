@@ -11,7 +11,7 @@ angular.module('einJahrGroKo.controllers', [])
         function($scope, $attrs, $log, $location, QuoteService, QuoteHistoryService) {
             /**
              * Initialize controller
-             * 
+             *
              * @param  {Object} element DOM element
              */
             this.init = function(element) { // jshint unused:false
@@ -26,7 +26,7 @@ angular.module('einJahrGroKo.controllers', [])
             /**
              * If no id is given either the next quote in history is shown
              * or if there are nor more quotes in history a random one is shown.
-             * 
+             *
              * @param {[type]} id [description]
              */
             $scope.setQuote = function(id) {
@@ -43,7 +43,7 @@ angular.module('einJahrGroKo.controllers', [])
              */
             $scope.previousQuote = function() {
                 var prevQuote = QuoteHistoryService.getPrevious();
-                
+
                 if (prevQuote) {
                     $scope.quote = prevQuote.obj;
                 }

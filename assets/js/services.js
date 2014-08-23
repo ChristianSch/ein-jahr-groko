@@ -65,7 +65,7 @@ angular.module('einJahrGroKo.services', [])
         function($http, $q, RandomNumberService, DataService, QuoteHistoryService) {
             /**
              * Calculate size of returned data
-             * @param  {Object} data 
+             * @param  {Object} data
              * @return {Integer} size of data
              */
             function getDataSize(data) {
@@ -97,7 +97,7 @@ angular.module('einJahrGroKo.services', [])
              * @discussion If the quote was already converted the `isHtml`
              * attribute is `true` and will be returned immediately. Otherwise
              * the quote will beconverted and marked the same way.
-             * 
+             *
              * @param  {Object} quote to convert
              * @return {Object}       converted quote
              */
@@ -125,10 +125,10 @@ angular.module('einJahrGroKo.services', [])
              *
              * 1.  `id` is set: return quote with given id if possible.
              *     Note: Promise rejects if quote with id was not found
-             *     
+             *
              * 2.  `id` is null and QuoteHistoryService's head is at the latest
              *     quote: random quote will be returned and added to the history
-             *     
+             *
              * 3.  `id` is null and QuoteHistoryService's head is not the latest
              *     quote: return next quote in history (the one following the
              *     now-head). The head will be moved to the quote
