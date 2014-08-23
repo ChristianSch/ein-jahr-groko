@@ -35,6 +35,9 @@ angular.module('einJahrGroKo.controllers', [])
 
                     // de-/enable `previous` button
                     $scope.disablePrev = QuoteHistoryService.hasPrevious() ? false : true;
+
+                }, function(rej) {
+                    $log.error(rej);
                 });
             };
 
