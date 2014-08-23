@@ -23,10 +23,7 @@ angular.module('einJahrGroKo.services', [])
                 // first time ever called: retrieve data and hand over to promise
                 // after finishing the retrieval
                 $http.get(dataSourceUrl, {
-                    'cached': true,
-                    'headers': {
-                        'Accept-Encoding': 'gzip'
-                    }
+                    'cached': true
                 })
                     .success(function(data) {
                         // hand data over to the promise
