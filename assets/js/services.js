@@ -204,8 +204,86 @@ angular.module('einJahrGroKo.services', [])
             };
         }
     ])
+    .factory('QuoteHistoryService', ['$location',
+        function($location) {
+            var history = [];
+            var histPntr = 0;
+
+            /**
+             * Check if there are previous quotes
+             * @return {Boolean}
+             */
+            function hasPrevious() {
+                return (histPntr === 0) ? false : true;
+            }
+
+            /**
+             * Add quote to history anbd change browser location accordingly
+             * @param {[type]} id  of quote
+             * @param {[type]} obj quote
+             */
+            function addObjectToHistory(id, obj) {
+                var histObj = {
+                    'id': id,
+                    'obj': obj
+                };
+
+                console.log('added ' + histObj.id + '; moved pntr to ' + histPntr);
+
+                history.push(histObj);
+                histPntr++;
+
+                // set hash in the browsers location bar
+                $location.hash(id);
+            }
+
+            /**
+             * Get predecessor of the current head quote
+             * @return {Object} quote or null if there is no predecessor
+             */
+            function getPrevious() {
+                window.history.back();
+
+                if (histPntr > 0) {
+                    histPntr--;
+
+                    console.log('returned getPrevious ' + history[histPntr].id + '; moved pntr to ' + histPntr);
+                    return history[histPntr];
+                }
+
+                return null; // no more items in history
+            }
+
+            /**
+             * Get successor of current quote
+             * @return {Object} quote or null if there is no successor
+             */
+            function getNext() {
+                var out;
+
+                if (histPntr < (history.length - 1)) {
+                    out = history[histPntr];
+                    histPntr++;
+
+                    console.log('returned getNext ' + out.id + '; moved pntr to ' + histPntr);
+
+                    // set hash in the browser location
+                    if (out) {
+                        $location.hash(out.id);
+                    }
+                } else {
+                    out = null;
+                }
+
+                return out;
+            }
+
+            // API for this service
             return {
-                getRandQuote: getRandQuote
+                addObjectToHistory: addObjectToHistory,
+                getNext: getNext,
+                getPrevious: getPrevious,
+                hasPrevious: hasPrevious
             };
         }
     ]);
