@@ -85,7 +85,7 @@ angular.module('einJahrGroKo.services', [])
              * @return {String}      stripped text
              */
             function stripParTag(text) {
-                return text.replace('<p>', '').replace('</p>', '');
+                return text.replace('<p>', '').replace('</p>', '').trim();
             }
 
             /**
