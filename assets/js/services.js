@@ -85,7 +85,7 @@ angular.module('einJahrGroKo.services', [])
              * @return {String}      stripped text
              */
             function stripParTag(text) {
-                return text.replace('<p>', '').replace('</p>', '');
+                return text.replace('<p>', '').replace('</p>', '').trim();
             }
 
             /**
@@ -102,14 +102,12 @@ angular.module('einJahrGroKo.services', [])
                 if (quote.isHtml) {
                     return quote;
                 } else {
-                    var converter = new Markdown.Converter();
-
                     return {
                         'author': quote.author,
                         'title': quote.title,
-                        'text': stripParTag(converter.makeHtml(quote.quote)),
+                        'text': stripParTag(marked(quote.quote || '')),
                         /* jshint camelcase:false */
-                        'source': stripParTag(converter.makeHtml(quote.quote_src)),
+                        'source': stripParTag(marked(quote.quote_src || '')),
                         'isHtml': true,
                         'id': quote.id
                     };
