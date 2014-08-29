@@ -105,7 +105,7 @@ angular.module('einJahrGroKo.services', [])
                     return {
                         'author': quote.author,
                         'title': quote.title,
-                        'text': stripParTag(marked(quote.quote || '')),
+                        'text': stripParTag(marked(quote.quote ||  '')),
                         /* jshint camelcase:false */
                         'source': stripParTag(marked(quote.quote_src || '')),
                         'isHtml': true,
