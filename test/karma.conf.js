@@ -17,6 +17,10 @@ module.exports = function(config) {
             'test/*/**.js'
         ],
 
+        preprocessors: {
+            'assets/js/*.js': ['coverage']
+        },
+
         // list of files / patterns to exclude
         exclude: [],
 
