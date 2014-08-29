@@ -37,8 +37,8 @@ describe("Testing Modules", function() {
                 expect(hasModule('einJahrGroKo.services')).to.equal(true);
             });
 
-            it("should have einJahrGroKo.values as a dependency", function() {
-                expect(hasModule('einJahrGroKo.values')).to.equal(true);
+            it("should have einJahrGroKo.constants as a dependency", function() {
+                expect(hasModule('einJahrGroKo.constants')).to.equal(true);
             });
         });
     });

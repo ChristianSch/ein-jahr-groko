@@ -6,7 +6,7 @@ angular.module('einJahrGroKo', [
     'einJahrGroKo.filters',
     'einJahrGroKo.services',
     'einJahrGroKo.controllers',
-    'einJahrGroKo.values',
+    'einJahrGroKo.constants',
     'einJahrGroKo.directives'
 ])
     .config(function($locationProvider) {

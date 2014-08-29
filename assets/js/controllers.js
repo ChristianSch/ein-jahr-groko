@@ -2,9 +2,9 @@
 
 
 angular.module('einJahrGroKo.controllers', [])
-    .controller('MainCtrl', ['$scope', '$window', 'appTitle',
-        function($scope, $window, appTitle) {
-            $window.document.title = appTitle;
+    .controller('MainCtrl', ['$scope', '$window', 'APP_TITLE',
+        function($scope, $window, APP_TITLE) {
+            $window.document.title = APP_TITLE;
         }
     ])
     .controller('EjgQuoteCtrl', ['$scope', '$attrs', '$log', '$location', 'QuoteService', 'QuoteHistoryService',
