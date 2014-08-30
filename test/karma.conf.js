@@ -53,8 +53,11 @@ module.exports = function(config) {
 
         plugins: [
             'karma-firefox-launcher',
+            'karma-phantomjs-launcher',
             'karma-mocha',
-            'karma-chai-plugins'
+            'karma-chai-plugins',
+            'karma-coverage',
+            'karma-story-reporter',
         ],
 
         // Continuous Integration mode
