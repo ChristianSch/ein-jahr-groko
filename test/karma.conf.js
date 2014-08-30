@@ -53,7 +53,8 @@ module.exports = function(config) {
 
         plugins: [
             'karma-firefox-launcher',
-            'karma-mocha'
+            'karma-mocha',
+            'karma-chai-plugins'
         ],
 
 
