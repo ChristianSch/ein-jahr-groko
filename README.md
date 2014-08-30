@@ -1,6 +1,6 @@
 Ein Jahr GroKo
 ==============
-
+![Build Status](https://travis-ci.org/ChristianSch/ein-jahr-groko.svg?branch=master)
 ## Development
 
 ### Before commit
