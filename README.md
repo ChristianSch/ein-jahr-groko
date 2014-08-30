@@ -1,6 +1,9 @@
 Ein Jahr GroKo
 ==============
-![Build Status](https://travis-ci.org/ChristianSch/ein-jahr-groko.svg?branch=master)
+[![Build Status](https://travis-ci.org/ChristianSch/ein-jahr-groko.svg?branch=master)](https://travis-ci.org/ChristianSch/ein-jahr-groko)
+
+[![devDependency Status](https://david-dm.org/ChristianSch/ein-jahr-groko/dev-status.svg?branch=master)](https://david-dm.org/ChristianSch/ein-jahr-groko#info=devDependencies)
+
 ## Development
 
 ### Before commit
