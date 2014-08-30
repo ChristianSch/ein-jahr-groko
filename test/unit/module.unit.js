@@ -1,5 +1,8 @@
+'use strict';
+
+
 describe("Testing Modules", function() {
-    describe("App Module:", function() {
+    describe("App", function() {
 
         var module;
         before(function() {
