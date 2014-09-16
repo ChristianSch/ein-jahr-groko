@@ -2,8 +2,8 @@
 
 
 angular.module('einJahrGroKo.services', [])
-    .factory('DataService', ['$q', '$http', 'dataSourceUrl',
-        function($q, $http, dataSourceUrl) {
+    .factory('DataService', ['$q', '$http', 'DATA_SOURCE_URL',
+        function($q, $http, DATA_SOURCE_URL) {
             /**
              * This is the data provider for all controllers etc. that depends
              * on the data. The first time the service is used the data gets
@@ -22,7 +22,7 @@ angular.module('einJahrGroKo.services', [])
 
                 // first time ever called: retrieve data and hand over to promise
                 // after finishing the retrieval
-                $http.get(dataSourceUrl, {
+                $http.get(DATA_SOURCE_URL, {
                     'cached': true
                 })
                     .success(function(data) {
@@ -105,7 +105,7 @@ angular.module('einJahrGroKo.services', [])
                     return {
                         'author': quote.author,
                         'title': quote.title,
-                        'text': stripParTag(marked(quote.quote || '')),
+                        'text': stripParTag(marked(quote.quote ||  '')),
                         /* jshint camelcase:false */
                         'source': stripParTag(marked(quote.quote_src || '')),
                         'isHtml': true,

@@ -1,13 +1,11 @@
 <div ng-show="quote">
-    <h2 ng-bind-html="quote.title | trustHtml"></h2>
-    <blockquote>
+    <h2 ng-bind-html="quote.title | trustHtml" class="entry-title"></h2>
+    <blockquote class="entry-quote">
         <p ng-bind-html="quote.text | trustHtml"></p>
         <footer>
-            <!-- author -->
-            <span ng-show="quote.author" ng-bind-html="quote.author | trustHtml"></span>
             <!-- source -->
             <span ng-show="quote.source">
-                (<cite title="" ng-bind-html="quote.source | trustHtml"></cite>)
+                <cite title="" ng-bind-html="quote.source | trustHtml"></cite>
             </span>
         </footer>
     </blockquote>

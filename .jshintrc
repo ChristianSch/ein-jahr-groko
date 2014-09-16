@@ -1,6 +1,6 @@
 {
     "node": true,
-    "predef": ["angular", "Markdown"],
+    "predef": ["angular", "marked"],
     "browser": true,
     "esnext": true,
     "bitwise": true,

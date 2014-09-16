@@ -17,6 +17,10 @@ module.exports = function(config) {
             'test/*/**.js'
         ],
 
+        preprocessors: {
+            'assets/js/*.js': ['coverage']
+        },
+
         // list of files / patterns to exclude
         exclude: [],
 
@@ -47,6 +51,14 @@ module.exports = function(config) {
         // - IE (only Windows)
         browsers: ['PhantomJS'],
 
+        plugins: [
+            'karma-firefox-launcher',
+            'karma-phantomjs-launcher',
+            'karma-mocha',
+            'karma-chai-plugins',
+            'karma-coverage',
+            'karma-story-reporter',
+        ],
 
         // Continuous Integration mode
         // if true, it capture browsers, run tests and exit

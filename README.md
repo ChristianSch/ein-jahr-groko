@@ -1,6 +1,10 @@
 Ein Jahr GroKo
 ==============
 
+[![Build Status](https://travis-ci.org/ChristianSch/ein-jahr-groko.svg?branch=master)](https://travis-ci.org/ChristianSch/ein-jahr-groko)
+[![devDependency Status](https://david-dm.org/ChristianSch/ein-jahr-groko/dev-status.svg?branch=master)](https://david-dm.org/ChristianSch/ein-jahr-groko#info=devDependencies)
+[![Stories in Ready](https://badge.waffle.io/ChristianSch/ein-jahr-groko.svg?label=ready&title=Ready)](http://waffle.io/ChristianSch/ein-jahr-groko)
+
 ## Development
 
 ### Before commit
