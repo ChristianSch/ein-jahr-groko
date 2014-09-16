@@ -13,8 +13,17 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,900|PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="assets/css/main.css">
-
+    <style>
+        .hint {
+            color: #aaa;
+            margin-top: 5em;
+        }
+        .row {
+            margin-bottom: 5em;
+        }
+    </style>
     <script src="assets/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 </head>
 
@@ -23,42 +32,72 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Ein Jahr GroKo</a>
-            </div>
+    <div class="container">
+        <div class="title" style="text-align: center">
+        <h1><small>Das wahlversprechen2013.de</small>
+        merkel-o-meter
+        </h1>
         </div>
-    </div>
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-        <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+            <p class="hint">Bevor wir Dir zeigen, wieviele ihrer Vorhaben die Große Koalition schon umgesetzt hat, hilf uns doch bitte bei der Bewertung eines zufälligen Wahlversprechens.</p> 
+            <a href="#stats"><em>Lass mich in Ruhe und zeig mir die Statistiken.</em></a>
+            </div>
+            <div class="col-sm-9">
             <!-- quote -->
             <ejg-quote></ejg-quote>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3">
+            <p class="hint" style="margin-top: 0.5em;">Bitte google doch einmal danach. </p> 
+            </div>
+            <div class="col-sm-9">
+             <form class="input-group" action="" method="get" style="width: 80%; margin-left: auto; margin-right: auto;">
+              <input type="text" name="query" class="form-control">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+              </span>
+            </form>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-3">
+            <p class="hint">Wenn Du etwas zu diesem Wahlversprechen gefunden hast, dann poste doch bitte einen Link in den Kommentaren. Sag uns ggf auch, ob Du das Wahlversprechen für gehalten oder gebrochen hältst, oder ob ein Kompromiss umgesetzt wurde.</p> 
+            </div>
+            <div class="col-sm-9">
+
+                <div style="width: 70%; height: 300px; border: 1px solid grey; margin-left: auto; margin-right: auto">
+                <em>Disqus Kommentare</em>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="text-align: center;">
+            <h1>Danke!</h1>
+        </div>
+
+        <div class="row" id="stats">
+            <div class="col-sm-3">
+            <p class="hint">Und hier die Statistiken, die Du eigentlich sehen wolltest.</p> 
+            </div>
+            <div class="col-sm-9">
+
+                <div style="width: 70%; height: 300px; border: 1px solid grey; margin-left: auto; margin-right: auto">
+                <em>Charts</em>
+                </div>
+            </div>
         </div>
     </div>
 
+
     <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <h2>Heading</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a>
-                </p>
-            </div>
-            <div class="col-md-4">
-                <h2>Heading</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a>
-                </p>
-            </div>
-        </div>
-
         <hr>
-
         <footer>
-            <p>&copy; Company 2014</p>
+            <p>Ein <a href="http://www.wahlversprechen2013.de">wahlversprechen2013.de</a> Projekt.</p>
         </footer>
     </div>
     <!-- /container -->
