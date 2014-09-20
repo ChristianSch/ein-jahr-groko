@@ -1,16 +1,16 @@
 <div ng-show="quote">
     <h2 ng-bind-html="quote.title | trustHtml" class="entry-title"></h2>
-    <blockquote class="entry-quote">
+    <blockquote class="entry-quote" style="margin-bottom: 0px; padding-bottom: 0px;">
         <p ng-bind-html="quote.text | trustHtml"></p>
         <footer>
             <!-- source -->
+            
             <span ng-show="quote.source">
                 <cite title="" ng-bind-html="quote.source | trustHtml"></cite>
             </span>
+            <p class="pull-right"><a class="btn btn-link" href="#" role="button" ng-click="setQuote()" alt="Neues Wahlversprechen laden"><span class="glyphicon glyphicon-refresh"></span></a>
         </footer>
     </blockquote>
-    <p class="pull-left"><a class="btn btn-default" href="#" role="button" ng-disabled="disablePrev" ng-click="previousQuote()">&laquo; Vorheriges</a>
-        <p class="pull-right"><a class="btn btn-default" href="#" role="button" ng-click="setQuote()">Nächstes &raquo;</a>
 </div>
 
 <br style="clear: both;">

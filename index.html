@@ -13,15 +13,79 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+	<link rel="shortcut icon" type="image/ico" href="assets/img/favicon.ico">
+
     <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,900|PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="assets/css/main.css">
     <style>
-        .hint {
-            color: #aaa;
-            margin-top: 5em;
-        }
+    	body {
+	    	padding: 0;
+			background-color: rgba(13,148,193,1); 
+    	}
+    	.top {
+	    	width=100%; 
+	    	background-color: black; 
+	    	color: white; 
+	    	padding: 0.5em;
+    	}
+    	.logo {
+	    	 width=100%; 
+	    	 text-align: center; 
+	    	 padding: 2em;
+    	}
+    	
         .row {
             margin-bottom: 5em;
+        }
+       
+        
+        h1, h2.entry-title {
+	        color: rgba(0,0,0,0.62);	        
+        }
+        a, blockquote footer {
+	        color: #1c4d81;
+        }
+        
+        blockquote {
+	        border-color: rgba(255,255,255,0.29);        
+	    }
+	    
+        .hint {
+	        border-left: 1px dotted white;
+	        border-top: 1px dotted white;
+	        padding-top: 0.5em;
+	        padding-left: 0.5em;
+	        vertical-align: middle;
+	        min-height: 50px;
+	        
+	        color: rgba(252,255,255,0.47);
+            margin-top: 5em;
+        }
+        .glyphicon {
+	        color: #374D74;
+        }
+        .number {
+	        background-color: white;
+	        color: rgba(141,180,193,1);
+	        
+	        width: 30px;
+	        height: 30px;
+	        font-size: 20px;
+	        border-radius: 50px;
+	        
+	        font-weight: bold;
+	        text-align: center;
+	        float:left;
+	        
+	        margin: 5px;
+        }
+        
+        .placeholder {
+	        width: 70%; 
+	        height: 300px; 
+	        border: 1px solid grey; 
+	        margin-left: auto; 
+	        margin-right: auto;	        
         }
     </style>
     <script src="assets/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
@@ -32,17 +96,24 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
+	<div class="top">
+	<strong style="font-size: 1.25em; padding-right: 2em">merkel-o-meter</strong>Gemeinsam der Regierung auf die Finger geschaut
+	</div>
+		
+    <div class="logo">
+    <img src="assets/img/merkelometer.png" width="508" height="107">
+    </div>
+    
     <div class="container">
-        <div class="title" style="text-align: center">
-        <h1><small>Das wahlversprechen2013.de</small>
-        merkel-o-meter
-        </h1>
-        </div>
 
         <div class="row">
             <div class="col-sm-3">
-            <p class="hint">Bevor wir Dir zeigen, wieviele ihrer Vorhaben die Große Koalition schon umgesetzt hat, hilf uns doch bitte bei der Bewertung eines zufälligen Wahlversprechens.</p> 
-            <a href="#stats"><em>Lass mich in Ruhe und zeig mir die Statistiken.</em></a>
+            <div class="hint">
+            	<div class="number">1</div>
+            	Bevor wir Dir zeigen, wieviele ihrer Vorhaben die Große Koalition schon umgesetzt hat, hilf uns doch bitte bei der Bewertung eines zufälligen Wahlversprechens.
+            	<br/><br/>
+				<a href="#stats">Nein danke, zeig mir einfach die Statistiken.</a>
+            </div>
             </div>
             <div class="col-sm-9">
             <!-- quote -->
@@ -52,7 +123,10 @@
 
         <div class="row">
             <div class="col-sm-3">
-            <p class="hint" style="margin-top: 0.5em;">Bitte google doch einmal danach. </p> 
+	            <div class="hint" style="margin-top: 0.5em;">
+	            	<div class="number">2</div>
+	            	Bitte google doch einmal danach.
+	            </div> 
             </div>
             <div class="col-sm-9">
              <form class="input-group" action="" method="get" style="width: 80%; margin-left: auto; margin-right: auto;">
@@ -67,11 +141,14 @@
 
         <div class="row">
             <div class="col-sm-3">
-            <p class="hint">Wenn Du etwas zu diesem Wahlversprechen gefunden hast, dann poste doch bitte einen Link in den Kommentaren. Sag uns ggf auch, ob Du das Wahlversprechen für gehalten oder gebrochen hältst, oder ob ein Kompromiss umgesetzt wurde.</p> 
+            <div class="hint">
+            	<div class="number">3</div>
+            	Wenn Du etwas zu diesem Wahlversprechen gefunden hast, dann poste doch bitte einen Link in den Kommentaren. Sag uns ggf auch, ob Du das Wahlversprechen für gehalten oder gebrochen hältst, oder ob ein Kompromiss umgesetzt wurde.
+            </div> 
             </div>
             <div class="col-sm-9">
 
-                <div style="width: 70%; height: 300px; border: 1px solid grey; margin-left: auto; margin-right: auto">
+                <div class="placeholder">
                 <em>Disqus Kommentare</em>
                 </div>
             </div>
@@ -82,11 +159,13 @@
 
         <div class="row" id="stats">
             <div class="col-sm-3">
-            <p class="hint">Und hier die Statistiken, die Du eigentlich sehen wolltest.</p> 
+            <div class="hint">
+            <div class="number">4</div>
+            Und hier die Statistiken, die Du eigentlich sehen wolltest.</div> 
             </div>
             <div class="col-sm-9">
 
-                <div style="width: 70%; height: 300px; border: 1px solid grey; margin-left: auto; margin-right: auto">
+                <div class="placeholder">
                 <em>Charts</em>
                 </div>
             </div>
